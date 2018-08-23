@@ -1,0 +1,52 @@
+.pg-Header {
+    $ns: "pg-";
+    $Module: "Header";
+    
+    padding: 1.2rem 0;
+    
+    &_body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    &_item {
+        padding: 0.5rem 0.75rem;
+    }
+    
+    &_homeButton {
+        display: flex;
+        align-items: stretch;
+    }
+    
+    &_homeLink {
+    
+    }
+    
+    &_logo {
+        height: 48px;
+    }
+    
+    &_sayHelloButton {
+        border: 2px solid $pg-Button_color-primary;
+        border-radius: 21px;
+        width: 116px;
+        height: 42px;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        transition: all .2s ease-in-out;
+        color: $pg-Button_color-primary;
+        
+        &:hover {
+            background-color: $pg-Button_color-primary;
+            color: white;
+        }
+    }
+    
+    &_sayHelloText {
+        font-size: 18px;
+    }
+}

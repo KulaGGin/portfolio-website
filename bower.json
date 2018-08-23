@@ -1,0 +1,17 @@
+{
+  "name": "HTML-Theme-Boilerplate",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Sergei Kulagin"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

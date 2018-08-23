@@ -1,0 +1,15 @@
+@import "variables";
+
+
+// Function for converting a px based font-size to rem.
+@function cRem($size, $remFontSize:16px) {
+  $remSize: $size / $remFontSize;
+  //Default font size on html element is 100%, equivalent to 16px;
+  @return #{$remSize}rem;
+}
+
+// Mixin that will include the fall back px declaration as well as the calculated rem value.
+@mixin calculateRemFallback($size) {
+  font-size: $size;
+  font-size: cRem($size); // outputs the px value as fallback for browsers that don’t support rem.
+}

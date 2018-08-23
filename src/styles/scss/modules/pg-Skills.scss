@@ -1,0 +1,61 @@
+.pg-Skills {
+    $ns: "pg-";
+    $Module: "Skills";
+    
+    margin-top: -14rem;
+    padding-bottom: 1rem;
+    
+    &_body {
+        padding: cRem(70px) cRem(45px);
+        
+        background-color: #FFFFFF;
+        border-radius: 0.75rem;
+        box-shadow: 0 5px 5px 0 rgba(233,240,243,0.5), 0 0 0 1px #E6ECF8;
+        
+        text-align: center;
+    }
+    
+    &_logo {
+        margin: 0 auto 2em;
+    }
+    
+    &_title {
+        font-size: 1.5rem;
+        //color: $pg-Text_color-primary;
+        
+        &:not(:first-child) {
+            margin-top: 1rem;
+        }
+        &:not(:last-child) {
+            margin-bottom: 1.5rem;
+        }
+    }
+    
+    &_listTitle {
+        font-size: 1.125rem;
+        font-weight: normal;
+        color: $pg-Text_color-primary;
+        
+        &:not(:first-child) {
+            margin-top: 3.125rem;
+        }
+        &:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+    }
+    
+    &_text {
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+    }
+    
+    &_devToolsList {
+        
+        &Item {
+            &+& {
+                margin-top: 0.25rem;
+            }
+        }
+    }
+}

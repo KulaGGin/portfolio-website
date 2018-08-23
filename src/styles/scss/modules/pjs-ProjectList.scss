@@ -1,0 +1,107 @@
+.pjs-ProjectList {
+    $ns: "pjs-";
+    $Module: "ProjectList";
+    
+    .pg-Projects & {
+        padding-top: 1rem;
+        
+        display: flex;
+        flex-wrap: wrap;
+        
+        &_item {
+            padding: .75rem;
+            width: (100% / 3);
+        }
+        
+        &_itemBody {
+            position: relative;
+            overflow: hidden;
+            
+            border-radius: 12px;
+            
+            &:hover {
+                .pjs-ProjectList_itemOverlay {
+                    background: #293347;
+                }
+                
+                .pjs-ProjectList_pjThumb {
+                    transform: scale(1.1);
+                }
+                
+                .pjs-ProjectList_pjInfo {
+                    opacity:1;
+                }
+            }
+        }
+        
+        &_itemOverlay {
+            position: absolute;
+            overflow: auto;
+            top: 0; left: 0; bottom: 0; right: 0;
+            z-index: 10;
+            transition: all .2s ease-in-out;
+        }
+        
+        &_pjThumb {
+            transition: all .2s ease-in-out;
+        }
+        
+        &_pjInfo {
+            opacity:0;
+            transition:all .2s ease-in-out;
+            
+            position: absolute;
+            overflow: auto;
+            top: 0; left: 0; bottom: 0; right: 0;
+            z-index: 20;
+            
+            padding: 0rem 2rem;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+        }
+        
+        &_itemTitle {
+            margin-bottom: 1.8rem;
+            
+            font-size: 18px;
+            color: white;
+        }
+        
+        &_visitWebsiteBtn {
+            border: solid 2px $pg-Button_color-primary;
+            border-radius: 290486px;
+            
+            padding: 0.5rem 1rem;
+            
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            
+            color: white;
+            font-size: 1.125rem;
+            font-weight: 400;
+            
+            transition: all .2s ease-in-out;
+            
+            &:hover {
+                background-color: $pg-Button_color-primary;
+                color: white;
+            }
+        }
+        
+        @media only screen and (max-width: $d-sm) {
+            &_item {
+                width: 50%;
+            }
+        }
+        
+        @media only screen and (max-width: $d-xs) {
+            &_item {
+                width: 100%;
+            }
+        }
+    }
+}

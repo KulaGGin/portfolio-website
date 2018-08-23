@@ -1,0 +1,30 @@
+//Theme vars
+
+$pg-Layout_backgroundColor-primary: white;
+$pg-Layout_backgroundColor-secondary: #8C43FF;
+
+$pg-Layout_maxWidth: 1344px;
+$pg-Layout_margin: 11px;
+$pg-Layout_realWidth: $pg-Layout_maxWidth + $pg-Layout_margin*2;
+
+$pg-remFontSize: 16px;
+
+$pg-Font_family-primary: Arial, sans-serif;
+$pg-Font_remSize-primary: 16px;
+$pg-Font-fontSize-primary: 12px;
+
+$pg-Text_color-primary: #8C43FF;
+
+$pg-Button_color-primary: #8C43FF;
+
+$pg-Text_titleFont-primary: 'eurostile', sans-serif;
+$pg-Text_subtitleFont-primary: 'europa', sans-serif;
+
+$pg-Link_color-primary: #3273dc;
+$pb-LinkHovered_color-primary: #363636;
+
+$d-xs: 640px;
+$d-sm: 768px;
+$d-md: 992px;
+$d-lg: 1100px;
+$d-xlg: 1200px;

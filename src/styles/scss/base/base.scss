@@ -1,0 +1,52 @@
+*, *:after, *:before {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: $pg-remFontSize;
+}
+
+img {
+    display: block;
+    max-width:100%;
+    max-height:100%;
+}
+
+a {
+    color: $pg-Link_color-primary;
+    text-decoration: none;
+    
+    &:hover {
+        color: #363636;
+    }
+}
+
+body, button, input, select, textarea {
+    font-family: 'europa', sans-serif;
+}
+
+html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $pg-Text_titleFont-primary;
+    font-weight: bold;
+    color: #293347;
+}
+
+h2 {
+    font-family: $pg-Text_subtitleFont-primary;
+}
+
+ul {
+    list-style: none;
+}
+
+@media only screen and(max-width: $d-sm) {
+    html {
+        font-size: 13px;
+    }
+}

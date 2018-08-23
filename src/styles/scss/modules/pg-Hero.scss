@@ -1,0 +1,46 @@
+.pg-Hero {
+    $ns: "pg-";
+    $Module: "Hero";
+    
+    padding-top: 2rem;
+    
+    &_body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        
+        padding: 3rem 1.5rem;
+    }
+    
+    &_title {
+        margin-bottom: 1.5rem;
+        
+        font-size: 3rem;
+        font-family: $pg-Text_titleFont-primary;
+        font-weight: bold;
+    }
+    
+    &_subtitle {
+        margin-bottom: 1.5rem;
+        
+        font-size: 1.5rem;
+        font-family: $pg-Text_subtitleFont-primary;
+        font-style: normal;
+        font-weight: 300;
+    }
+    
+    &_avatar {
+        margin: 2rem 0;
+    }
+    
+    &_footer {
+        text-align: center;
+    }
+    
+    &_footerImage {
+        max-width: 860px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}

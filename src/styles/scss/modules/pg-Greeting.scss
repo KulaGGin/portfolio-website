@@ -1,0 +1,41 @@
+.pg-Greeting {
+    $ns: "pg-";
+    $Module: "Greeting";
+
+    background-color: $pg-Layout_backgroundColor-secondary;
+
+    padding-top: 8rem;
+    padding-bottom: 18rem;
+
+    &_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    &_body {
+        width: 60%;
+        padding: 0.75rem;
+    }
+
+    &_title {
+        margin-bottom: 1.5rem;
+
+        font-size: 2rem;
+        font-family: $pg-Text_titleFont-primary;
+        font-weight: bold;
+
+        color: white;
+    }
+
+    &_subtitle {
+        margin-bottom: 1.5rem;
+
+        font-size: 1.25rem;
+        font-family: $pg-Text_subtitleFont-primary;
+        font-weight: 300;
+
+        color: white;
+    }
+}
