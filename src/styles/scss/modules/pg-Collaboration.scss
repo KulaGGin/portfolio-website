@@ -25,7 +25,9 @@
     }
     
     &_emailMeBtn {
-        margin-top: 2rem;
+        &Container {
+            margin-top: 2rem;
+        }
         
         border: solid 2px #8C43FF;
         border-radius: 290486px;

@@ -2,6 +2,8 @@
     
     text-align: center;
     
+    padding-bottom: 4rem;
+    
     &_title {
         margin-bottom: 1rem;
     }
@@ -9,5 +11,29 @@
     &_subtitle {
         margin-bottom: 1.5rem;
         font-weight: 300;
+    }
+    
+    &_button {
+        margin-top: 2rem;
+    
+        border: solid 2px #8C43FF;
+        border-radius: 290486px;
+    
+        padding: 0.5rem 1rem;
+    
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    
+        font-size: 1.25rem;
+        font-weight: 400;
+    
+        transition: all .2s ease-in-out;
+        color: $pg-Button_color-primary;
+    
+        &:hover {
+            background-color: $pg-Button_color-primary;
+            color: white;
+        }
     }
 }
