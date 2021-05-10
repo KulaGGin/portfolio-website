@@ -1,6 +1,3 @@
-@import "variables";
-
-
 // Function for converting a px based font-size to rem.
 @function cRem($size, $remFontSize:16px) {
   $remSize: $size / $remFontSize;

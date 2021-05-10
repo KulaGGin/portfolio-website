@@ -13,7 +13,9 @@ const
     jshint = require('gulp-jshint'),
     gulpIf = require('gulp-if'),
     notify = require('gulp-notify');
-    // var log = require('fancy-log');
+
+const del = require('del');
+const gulpOrder = require('gulp-order');
 
 const
     postcss = require('gulp-postcss'),
@@ -124,24 +126,43 @@ gulp.task('compile:img', function() {
     browserSync.reload();
 });
 
-// // Compile sass and move to build folder
-gulp.task('compile:sass', function() {
-    // Dynamically add plugins depending on if debugging or releasing
-    var plugins = getPostCSSPlugins();
-    
-    var scssList = new ScssInjectList();
-    
-    gulp.src(config.src.path + 'styles/scss/main.scss')
-        .pipe(plumber({errorHandler: handleError})) // plumber to catch errors
-        .pipe(inject(scssList.fileStream, scssList.injectOptions)) // Inject other .scss into main.scss
-        .pipe(gulpIf(config.build.type === "debug", sourcemaps.init())) // init sourcemaps if developing
-        .pipe(sass()) // compile into .css
-        .pipe(concat('bundle.min.css')) // concat into a single file
-        .pipe(postcss(plugins)) // pass through postcss plugins
-        .pipe(gulpIf(config.build.type === "debug", sourcemaps.write())) // write sourcemaps if developing
-        .pipe(gulp.dest(config.build.path + 'css')) // save
-        // .pipe(browserSync.stream()); // Stream it to update page in real time without reloading page
+gulp.task('compile:sass', () => {
+    var orderedFiles = [
+        'src/styles/scss/partials/_variables.scss',
+        'src/styles/scss/partials/_mixins.scss',
+        'src/styles/scss/vendor/sanitize.scss',
+        'src/styles/scss/vendor/**.scss','!./src/styles/scss/vendor/sanitize.scss',
+        'src/styles/scss/layout/**/*.scss',
+        'src/styles/scss/base/**/*.scss',
+        'src/styles/scss/modules/**/*.scss'
+    ];
+
+    return gulp.src('./src/styles/scss/**/*.scss')
+        .pipe(gulpOrder(orderedFiles, { base: __dirname }))
+        .pipe(concat("main.scss"))
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest(config.build.path + 'css'));
 });
+
+// // // Compile sass and move to build folder
+// gulp.task('compile:sass', function() {
+//     // Dynamically add plugins depending on if debugging or releasing
+//     var plugins = getPostCSSPlugins();
+//
+//     var scssList = new ScssInjectList();
+//
+//     gulp.src(config.src.path + 'styles/scss/main.scss')
+//         .pipe(plumber({errorHandler: handleError})) // plumber to catch errors
+//         .pipe(inject(scssList.fileStream, scssList.injectOptions)) // Inject other .scss into main.scss
+//         .pipe(gulpIf(config.build.type === "debug", sourcemaps.init())) // init sourcemaps if developing
+//         .pipe(sass()) // compile into .css
+//         .pipe(concat('bundle.min.css')) // concat into a single file
+//         .pipe(postcss(plugins)) // pass through postcss plugins
+//         .pipe(gulpIf(config.build.type === "debug", sourcemaps.write())) // write sourcemaps if developing
+//         .pipe(gulp.dest(config.build.path + 'css')) // save
+//         // .pipe(browserSync.stream()); // Stream it to update page in real time without reloading page
+// }
+
 
 function ScssInjectList() {
     
