@@ -107,7 +107,6 @@ gulp.task('compile:html', function() {
 
 // Move html to build folder and inject appropriate files
 gulp.task('compile:fonts', function() {
-    
     gulp.src(config.src.fonts.path)
         .pipe(gulp.dest(config.build.path + 'fonts'));
     
@@ -143,26 +142,6 @@ gulp.task('compile:sass', () => {
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(config.build.path + 'css'));
 });
-
-// // // Compile sass and move to build folder
-// gulp.task('compile:sass', function() {
-//     // Dynamically add plugins depending on if debugging or releasing
-//     var plugins = getPostCSSPlugins();
-//
-//     var scssList = new ScssInjectList();
-//
-//     gulp.src(config.src.path + 'styles/scss/main.scss')
-//         .pipe(plumber({errorHandler: handleError})) // plumber to catch errors
-//         .pipe(inject(scssList.fileStream, scssList.injectOptions)) // Inject other .scss into main.scss
-//         .pipe(gulpIf(config.build.type === "debug", sourcemaps.init())) // init sourcemaps if developing
-//         .pipe(sass()) // compile into .css
-//         .pipe(concat('bundle.min.css')) // concat into a single file
-//         .pipe(postcss(plugins)) // pass through postcss plugins
-//         .pipe(gulpIf(config.build.type === "debug", sourcemaps.write())) // write sourcemaps if developing
-//         .pipe(gulp.dest(config.build.path + 'css')) // save
-//         // .pipe(browserSync.stream()); // Stream it to update page in real time without reloading page
-// }
-
 
 function ScssInjectList() {
     
@@ -294,7 +273,6 @@ function getPostCSSPlugins() {
     
     return plugins;
 }
-
 
 // Used to inject files
 function transformFilepath(filepath) {
