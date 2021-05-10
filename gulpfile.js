@@ -13,6 +13,7 @@ const
     jshint = require('gulp-jshint'),
     gulpIf = require('gulp-if'),
     notify = require('gulp-notify');
+    // var log = require('fancy-log');
 
 const
     postcss = require('gulp-postcss'),
@@ -46,7 +47,7 @@ const config = new (function() {
     })();
     
     this.build = new (function() {
-        this.type = "release";
+        this.type = "debug";
         this.html = {};
         this.img = {};
         this.css = {};
@@ -135,17 +136,19 @@ gulp.task('compile:sass', function() {
         .pipe(inject(scssList.fileStream, scssList.injectOptions)) // Inject other .scss into main.scss
         .pipe(gulpIf(config.build.type === "debug", sourcemaps.init())) // init sourcemaps if developing
         .pipe(sass()) // compile into .css
-        // .pipe(concat('bundle.min.css')) // concat into a single file
+        .pipe(concat('bundle.min.css')) // concat into a single file
         .pipe(postcss(plugins)) // pass through postcss plugins
         .pipe(gulpIf(config.build.type === "debug", sourcemaps.write())) // write sourcemaps if developing
         .pipe(gulp.dest(config.build.path + 'css')) // save
-        .pipe(browserSync.stream()); // Stream it to update page in real time without reloading page
+        // .pipe(browserSync.stream()); // Stream it to update page in real time without reloading page
 });
 
 function ScssInjectList() {
     
     var ScssInjectList = {};
-    ScssInjectList.fileStream = [];
+    // ScssInjectList.fileStream = [];
+
+    // log('Hello world!');
     
     // injectFiles
     ScssInjectList.fileStream = series(
@@ -159,8 +162,6 @@ function ScssInjectList() {
         gulp.src(['./src/styles/scss/base/**/*.scss']),
         
         gulp.src(['./src/styles/scss/modules/**/*.scss'])
-    
-    
     );
     
     ScssInjectList.injectOptions = {
@@ -265,7 +266,7 @@ function getPostCSSPlugins() {
     ];
     
     // add plugins if publishing
-    if (config.build.type === "release") {
+    if (config.build.type === "debug") {
         plugins.splice(plugins.length - 1, 0, uncss({html: [config.src.path + 'index.html']}));
         plugins.splice(plugins.length - 1, 0, cssnano({autoprefixer: false}));
     }

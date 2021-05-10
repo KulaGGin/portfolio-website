@@ -4,3 +4,5 @@ node_modules
 .git
 docs/**
 debug/**
+debug_working/**
+package-lock.json
