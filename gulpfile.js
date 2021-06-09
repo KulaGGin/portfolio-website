@@ -90,7 +90,6 @@ gulp.task('compile:all', function() {
 
 // Move html to build folder and inject appropriate files
 gulp.task('compile:html', function() {
-    //var injectFiles = gulp.src([config.build.path + 'css/**/*.css'], [config.build.path + 'js/*.js']);
     var injectFiles = series(gulp.src([config.build.path + 'css/**/*.css']), gulp.src([config.build.path + 'js/**/*.js']));
     
     var injectOptions = new (function() {
