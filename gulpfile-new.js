@@ -57,6 +57,7 @@ gulp.task(`compile:html`, function(done) {
         .pipe(inject(filesToInject, injectOptions))
         .pipe(gulp.dest(config.build.path));
 
+    // browserSync.reload();
     done();
 });
 
@@ -65,6 +66,7 @@ gulp.task('compile:fonts', function(done) {
     gulp.src(config.sourcePaths.fonts.path)
         .pipe(gulp.dest(config.build.path + 'fonts'));
 
+    // browserSync.reload();
     done();
 });
 
