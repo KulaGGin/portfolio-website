@@ -107,4 +107,4 @@ gulp.task('clean', () => {
     ]);
 });
 
-gulp.task('default', gulp.series(['clean', 'styles']));
+gulp.task('default', gulp.series(['clean', 'compile:img', 'compile:fonts', 'compile:sass', 'compile:html']));
