@@ -83,7 +83,7 @@ gulp.task('compile:img', function(done) {
     done();
 });
 
-gulp.task('styles', () => {
+gulp.task('compile:sass', () => {
     var orderedFiles = [
         'src/styles/scss/partials/_variables.scss',
         'src/styles/scss/partials/_mixins.scss',
