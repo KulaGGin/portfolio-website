@@ -18,7 +18,6 @@
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.2",
     "gulp-if": "^2.0.2",
-    "gulp-imagemin": "^4.1.0",
     "gulp-inject": "^4.3.2",
     "gulp-jshint": "^2.1.0",
     "gulp-less": "^3.5.0",
@@ -41,6 +40,7 @@
   },
   "description": "",
   "dependencies": {
-    "bower": "^1.8.12"
+    "bower": "^1.8.12",
+    "gulp-imagemin": "^7.1.0"
   }
 }
