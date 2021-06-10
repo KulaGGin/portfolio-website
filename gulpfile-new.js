@@ -104,10 +104,12 @@ gulp.task('compile:sass', () => {
         .pipe(gulp.dest(`./${config.build.type}/css`));
 });
 
-gulp.task('clean', () => {
-    return del([
-        `${BuildType}/css/main.css`,
+gulp.task('clean', (done) => {
+    del([
+        `${config.buildPath}**/*`,
     ]);
+
+    done();
 });
 
 gulp.task('compile:js', function(done) {
