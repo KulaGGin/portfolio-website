@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
-var concat = require("gulp-concat");
+const concat = require("gulp-concat");
+const imagemin = require('gulp-imagemin');
 const del = require('del');
 const gulpOrder = require('gulp-order');
 const inject = require('gulp-inject');
@@ -65,6 +66,18 @@ gulp.task(`compile:html`, function(done) {
 gulp.task('compile:fonts', function(done) {
     gulp.src(config.sourcePaths.fonts.path)
         .pipe(gulp.dest(config.build.path + 'fonts'));
+
+    // browserSync.reload();
+    done();
+});
+
+// Process images with imagemin plugin and move to build folder
+gulp.task('compile:img', function(done) {
+    gulp.src(config.sourcePaths.img.path)
+        .pipe(imagemin([
+            // imagemin.optipng({optimizationLevel: 5})
+        ]))
+        .pipe(gulp.dest(config.build.path + 'img'));
 
     // browserSync.reload();
     done();
