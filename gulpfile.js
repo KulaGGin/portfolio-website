@@ -1,127 +1,89 @@
-// Declaring Gulp constants
-const
-    gulp = require('gulp'),
-    runSeq = require('run-sequence'),
-    sass = require('gulp-sass'),
-    less = require('gulp-less'),
-    sourcemaps = require('gulp-sourcemaps'),
-    inject = require('gulp-inject'),
-    series = require('stream-series'),
-    concat = require('gulp-concat'),
-    imagemin = require('gulp-imagemin'),
-    plumber = require('gulp-plumber'),
-    jshint = require('gulp-jshint'),
-    gulpIf = require('gulp-if'),
-    notify = require('gulp-notify');
-
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
+const concat = require("gulp-concat");
+const imagemin = require('gulp-imagemin');
+const plumber = require('gulp-plumber');
 const del = require('del');
 const gulpOrder = require('gulp-order');
+const inject = require('gulp-inject');
+const series = require('stream-series');
+const gulpIf = require('gulp-if');
 
-const
-    postcss = require('gulp-postcss'),
-    autoprefixer = require('autoprefixer'),
-    cssnext = require('postcss-cssnext'),
-    uncss = require('postcss-uncss'),
-    cssnano = require('cssnano');
+class Config {
+    constructor() {
+        this.sourcePaths = new (function () {
+            this.html = {path: ['src/*.html']};
+            this.fonts = {path: ['src/fonts/**/*.*']};
+            this.img = {path: ['src/img/**/*.jpg', 'src/img/**/*.png', 'src/img/**/*.gif', 'src/img/**/*.*']};
+            this.css = {path: ['src/styles/**/*.css', 'src/styles/**/*.css.map']};
+            this.scss = {path: ['src/styles/**/*.scss']};
+            this.less = {path: ['src/styles/**/*.less']};
+            this.js = {path: ['src/js/**/*.js', 'src/css/**/*.js.map']};
+            this.path = 'src/';
+        })();
 
-const
-    browserSync = require('browser-sync').create();
+        this.debugPath = 'debug/';
+        this.releasePath = 'docs/'
 
-// Config used to configure gulp tasks, note - it is written as self-invoking anonymous (function() {})();
-const config = new (function() {
-    this.src = new (function() {
-        this.html = {path: ['src/*.html']};
-        this.fonts = {path: ['src/fonts/**/*.*']};
-        this.img = {path: ['src/img/**/*.jpg', 'src/img/**/*.png', 'src/img/**/*.gif', 'src/img/**/*.*']};
-        this.css = {path: ['src/styles/**/*.css', 'src/styles/**/*.css.map']};
-        this.scss = {path: ['src/styles/**/*.scss']};
-        this.less = {path: ['src/styles/**/*.less']};
-        this.js = {path: ['src/js/**/*.js', 'src/css/**/*.js.map']};
-        this.path = 'src/';
-    })();
-    
-    this.debug = new (function() {
-        this.path = 'debug/';
-    })();
-    
-    this.release = new (function() {
-        this.path = 'docs/'
-    })();
-    
-    this.build = new (function() {
-        this.type = "debug";
-        this.html = {};
-        this.img = {};
-        this.css = {};
-        this.js = {}
-    })();
-    this.build.path = this[this.build.type].path;
-    
-    this.buildPath = this.build.path;
-    this.build.html.path = this.buildPath;
-    this.build.img.path = this.buildPath + 'img';
-    this.build.css.path = this.buildPath + 'css';
-    this.build.js.path = this.buildPath + 'js';
-})();
+        this.build = new (function() {
+            this.path = "";
+            this.type = "debug";
+            this.html = {};
+            this.img = {};
+            this.css = {};
+            this.js = {}
+        })();
 
-// Default task
-gulp.task('default', function() {
-    runSeq('compile:all', 'browserSync:serve', 'watch:all')
-});
+        this.build.path = this[`${this.build.type}Path`];
 
-// Watch src folder, when files are changed in src folder - call appropriate task:
-// Compile and move needed files to build folder
-gulp.task('watch:all', function() {
-    gulp.watch(config.src.html.path, {cwd: './'}, ['compile:html']).on('error', handleError);
-    gulp.watch(config.src.fonts.path, {cwd: './'}, ['compile:fonts']).on('error', handleError); // Using cwd hack to update browser when files are
-    gulp.watch(config.src.img.path, {cwd: './'}, ['compile:img']).on('error', handleError); //     deleted and added
-    gulp.watch(config.src.scss.path, {cwd: './'}, ['compile:sass']).on('error', handleError);
-    gulp.watch(config.src.css.path, {cwd: './'}, ['compile:css']).on('error', handleError);
-    gulp.watch(config.src.js.path, {cwd: './'}, ['compile:js']).on('error', handleError);
-    
-    // Reload browser only when files in dist folder are changed
-    // gulp.watch('./docs/**/*').on('change', browserSync.reload);
-});
+        this.buildPath = this.build.path;
 
-gulp.task('compile:all', function() {
-    runSeq('compile:sass', 'compile:img', 'compile:js', 'compile:fonts', 'compile:html');
-});
+        this.build.html.path = this.buildPath;
+        this.build.img.path = this.buildPath + 'img';
+        this.build.css.path = this.buildPath + 'css';
+        this.build.js.path = this.buildPath + 'js';
+    }
+}
 
+let config = new Config();
 
 // Move html to build folder and inject appropriate files
-gulp.task('compile:html', function() {
-    var injectFiles = series(gulp.src([config.build.path + 'css/**/*.css']), gulp.src([config.build.path + 'js/**/*.js']));
-    
+gulp.task(`compile:html`, function(done) {
+    var filesToInject = series(gulp.src([config.buildPath + 'css/**/*.css']), gulp.src([config.build.path + 'js/**/*.js']));
+
     var injectOptions = new (function() {
         this.addRootSlash = false;
-        this.ignorePath = [config.src.path, config.build.path];
+        this.ignorePath = [config.sourcePaths.path, config.build.path];
     })();
-    
-    gulp.src(config.src.html.path)
-        .pipe(inject(injectFiles, injectOptions))
+
+    gulp.src(config.sourcePaths.html.path)
+        .pipe(inject(filesToInject, injectOptions))
         .pipe(gulp.dest(config.build.path));
-    
-    browserSync.reload();
+
+    // browserSync.reload();
+    done();
 });
 
-// Move html to build folder and inject appropriate files
-gulp.task('compile:fonts', function() {
-    gulp.src(config.src.fonts.path)
+// Move fonts to build folder
+gulp.task('compile:fonts', function(done) {
+    gulp.src(config.sourcePaths.fonts.path)
         .pipe(gulp.dest(config.build.path + 'fonts'));
-    
-    browserSync.reload();
-});
 
+    // browserSync.reload();
+    done();
+});
 
 // Process images with imagemin plugin and move to build folder
-gulp.task('compile:img', function() {
-    gulp.src(config.src.img.path)
+gulp.task('compile:img', function(done) {
+    gulp.src(config.sourcePaths.img.path)
         .pipe(imagemin([
-            //imagemin.optipng({optimizationLevel: 5})
+            // imagemin.optipng({optimizationLevel: 5})
         ]))
         .pipe(gulp.dest(config.build.path + 'img'));
-    
-    browserSync.reload();
+
+    // browserSync.reload();
+    done();
 });
 
 gulp.task('compile:sass', () => {
@@ -139,113 +101,30 @@ gulp.task('compile:sass', () => {
         .pipe(gulpOrder(orderedFiles, { base: __dirname }))
         .pipe(concat("main.scss"))
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest(config.build.path + 'css'));
+        .pipe(gulp.dest(`./${config.build.type}/css`));
 });
 
-function ScssInjectList() {
-    
-    var ScssInjectList = {};
-    // ScssInjectList.fileStream = [];
+gulp.task('clean', (done) => {
+    del([
+        `${config.buildPath}**/*`,
+    ]);
 
-    // log('Hello world!');
-    
-    // injectFiles
-    ScssInjectList.fileStream = series(
-        gulp.src(['./src/styles/scss/partials/**/*.scss']),
-        
-        gulp.src(['./src/styles/scss/vendor/sanitize.scss']),
-        gulp.src(['./src/styles/scss/vendor/**.scss','!./src/styles/scss/vendor/sanitize.scss']),
-        
-        gulp.src(['./src/styles/scss/layout/**/*.scss']),
-        
-        gulp.src(['./src/styles/scss/base/**/*.scss']),
-        
-        gulp.src(['./src/styles/scss/modules/**/*.scss'])
-    );
-    
-    ScssInjectList.injectOptions = {
-        transform: transformFilepath,
-        starttag: '// inject:app',
-        endtag: '// endinject',
-        addRootSlash: false
-    };
-    
-    
-    return ScssInjectList;
-}
-
-// // Compile less and move to build folder
-gulp.task('compile:less', function() {
-    // Dynamically add plugins depending on if debugging or releasing
-    var plugins = getPostCSSPlugins();
-    
-    var injectFiles = gulp.src(
-        [   './src/styles/less/partials/**/*.less',
-            './src/styles/less/layout/**/*.less',
-            '!./src/styles/less/main.less'
-        ],
-        
-        {read: false}
-    );
-    
-    var injectOptions = {
-        transform: transformFilepath,
-        starttag: '// inject:app',
-        endtag: '// endinject',
-        addRootSlash: false
-    };
-    
-    gulp.src(config.src.path + 'styles/less/main.less')
-        .pipe(plumber({errorHandler: handleError})) // plumber to catch errors
-        .pipe(inject(injectFiles, injectOptions)) // Inject other .less files into main.less
-        .pipe(gulpIf(config.build.type === "debug", sourcemaps.init())) // init sourcemaps if developing
-        .pipe(less()) // compile into .css
-        .pipe(postcss(plugins)) // pass through postcss plugins
-        .pipe(gulpIf(config.build.type === "debug", sourcemaps.write())) // write sourcemaps if developing
-        .pipe(gulp.dest(config.build.path + 'css')) // save
-        .pipe(browserSync.stream()); // Stream it to update page in real time without reloading page
+    done();
 });
 
-gulp.task('compile:js', function() {
+gulp.task('compile:js', function(done) {
     gulp.src(['./src/js/**/*.js', '!./src/js/main.js'])
         .pipe(plumber({errorHandler: handleError}))
         .pipe(gulpIf(config.build.type === "debug", sourcemaps.init())) // init sourcemaps if developing
         .pipe(gulpIf(config.build.type === "debug", sourcemaps.write())) // write sourcemaps if developing
         .pipe(concat('main.js')) // Inject other .js into main.js
         .pipe(gulp.dest(config.build.path + 'js'));
-    
-    browserSync.reload();
+
+    // browserSync.reload();
+    done();
 });
 
-gulp.task('browserSync:serve', function() {
-    
-    var paramsObj = new (function() {
-        
-        this.server = (function() {
-            //return this.baseDir = config.build.type;
-            let buildType = config.build.type;
-            return this.baseDir = config[buildType].path;
-        })();
-        
-        this.port = 8080;
-        this.open = false;
-        this.notify = false;
-    })();
-    
-    browserSync.init(paramsObj);
-});
-
-// // Opacity hack function used by Autoprefixer
-function opacityHack(css, opts) {
-    css.walkDecls(function(decl) {
-        if (decl.prop === 'opacity') {
-            decl.parent.insertAfter(decl, {
-                prop: '-ms-filter',
-                value: '"progid:DXImageTransform.Microsoft.Alpha(Opacity=' + (parseFloat(decl.value) * 100) + ')"'
-            });
-        }
-    });
-}
+gulp.task('default', gulp.series(['clean', 'compile:img', 'compile:fonts', 'compile:sass', 'compile:js', 'compile:html']));
 
 // Error handler used by Gulp to catch and display errors without destroying tasks
 function handleError(error) {
@@ -253,27 +132,6 @@ function handleError(error) {
         title: "Gulp error in " + error.plugin,
         message: error.toString()
     })(error);
-    
+
     this.emit('end');
-}
-
-function getPostCSSPlugins() {
-    // Dynamically add plugins depending on if debugging or releasing
-    var plugins = [
-        opacityHack,
-        cssnext({browsers: ['last 3 versions']})
-    ];
-    
-    // add plugins if publishing
-    if (config.build.type === "debug") {
-        plugins.splice(plugins.length - 1, 0, uncss({html: [config.src.path + 'index.html']}));
-        plugins.splice(plugins.length - 1, 0, cssnano({autoprefixer: false}));
-    }
-    
-    return plugins;
-}
-
-// Used to inject files
-function transformFilepath(filepath) {
-    return '@import "' + filepath + '";';
 }

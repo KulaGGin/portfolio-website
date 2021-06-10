@@ -1,7 +1,7 @@
 {
   "name": "HTML-Theme-Boilerplate",
   "version": "1.0.0",
-  "main": "gulpfile-new.js",
+  "main": "gulpfile.js",
   "scripts": {
     "postinstall": "bower install"
   },
