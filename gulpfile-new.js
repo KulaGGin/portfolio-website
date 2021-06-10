@@ -1,11 +1,14 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
 const concat = require("gulp-concat");
 const imagemin = require('gulp-imagemin');
+const plumber = require('gulp-plumber');
 const del = require('del');
 const gulpOrder = require('gulp-order');
 const inject = require('gulp-inject');
 const series = require('stream-series');
+const gulpIf = require('gulp-if');
 
 class Config {
     constructor() {
@@ -107,4 +110,26 @@ gulp.task('clean', () => {
     ]);
 });
 
-gulp.task('default', gulp.series(['clean', 'compile:img', 'compile:fonts', 'compile:sass', 'compile:html']));
+gulp.task('compile:js', function(done) {
+    gulp.src(['./src/js/**/*.js', '!./src/js/main.js'])
+        .pipe(plumber({errorHandler: handleError}))
+        .pipe(gulpIf(config.build.type === "debug", sourcemaps.init())) // init sourcemaps if developing
+        .pipe(gulpIf(config.build.type === "debug", sourcemaps.write())) // write sourcemaps if developing
+        .pipe(concat('main.js')) // Inject other .js into main.js
+        .pipe(gulp.dest(config.build.path + 'js'));
+
+    // browserSync.reload();
+    done();
+});
+
+gulp.task('default', gulp.series(['clean', 'compile:img', 'compile:fonts', 'compile:sass', 'compile:js', 'compile:html']));
+
+// Error handler used by Gulp to catch and display errors without destroying tasks
+function handleError(error) {
+    notify.onError({
+        title: "Gulp error in " + error.plugin,
+        message: error.toString()
+    })(error);
+
+    this.emit('end');
+}
