@@ -60,6 +60,14 @@ gulp.task(`compile:html`, function(done) {
     done();
 });
 
+// Move fonts to build folder
+gulp.task('compile:fonts', function(done) {
+    gulp.src(config.sourcePaths.fonts.path)
+        .pipe(gulp.dest(config.build.path + 'fonts'));
+
+    done();
+});
+
 gulp.task('styles', () => {
     var orderedFiles = [
         'src/styles/scss/partials/_variables.scss',
