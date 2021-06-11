@@ -1,18 +1,47 @@
 .pg-Skills {
     $ns: "pg-";
     $Module: "Skills";
-    
+
     margin-top: -14rem;
-    padding-bottom: 1rem;
-    
+    margin-right: 1rem;
+
+
+    //&:last-child {
+    //    margin: 10px auto;
+    //}
+
+    &_Container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        background-color: #FFFFFF;
+
+        box-shadow: 0 5px 5px 0 rgba(233,240,243,0.5), 0 0 0 1px #E6ECF8;
+        border-radius: 0.75rem;
+    }
+
     &_body {
         padding: cRem(70px) cRem(45px);
-        
-        background-color: #FFFFFF;
-        border-radius: 0.75rem;
-        box-shadow: 0 5px 5px 0 rgba(233,240,243,0.5), 0 0 0 1px #E6ECF8;
-        
+        width: 33.3%;
+
+        border-right: 1px solid #E6ECF8;
+        border-bottom: 1px solid #E6ECF8;
         text-align: center;
+
+        &:nth-child(3) {
+            border-right: 0;
+        }
+        &:last-child {
+            border: 0;
+            flex-basis: 100%;
+            align-self: center;
+        }
+
+        @media only screen and (max-width: $d-md) {
+            flex-basis: 100%;
+            align-self: center;
+        }
     }
     
     &_logo {
@@ -37,7 +66,7 @@
         color: $pg-Text_color-primary;
         
         &:not(:first-child) {
-            margin-top: 3.125rem;
+            margin-top: 1.5rem;
         }
         &:not(:last-child) {
             margin-bottom: 0.5rem;

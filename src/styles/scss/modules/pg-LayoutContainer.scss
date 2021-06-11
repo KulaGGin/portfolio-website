@@ -3,6 +3,7 @@
     $Module: "LayoutContainer";
     
     margin: 0 auto;
+    padding-bottom: 1rem;
     max-width: $pg-Layout_maxWidth;
     
     @media only screen and (max-width: $pg-Layout_maxWidth + $pg-Layout_margin*2) {
