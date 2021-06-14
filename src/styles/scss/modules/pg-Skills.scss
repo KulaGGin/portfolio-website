@@ -5,10 +5,17 @@
     margin-top: -14rem;
     margin-right: 1rem;
 
+    &_sectionTitle {
+        text-align:center;
 
-    //&:last-child {
-    //    margin: 10px auto;
-    //}
+        margin-bottom: 1.5rem;
+
+        font-size: 2rem;
+        font-family: $pg-Text_titleFont-primary;
+        font-weight: bold;
+
+        color: white;
+    }
 
     &_Container {
         display: flex;

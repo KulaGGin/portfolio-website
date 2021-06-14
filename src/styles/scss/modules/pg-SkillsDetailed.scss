@@ -1,0 +1,20 @@
+.pg-SkillsDetailed {
+  text-align: center;
+
+  &_title {
+    margin-bottom: 0.5rem;
+  }
+
+  &_subtitle {
+    font-weight: 300;
+  }
+
+  &_sectionTitle {
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  p {
+    font-weight: 300;
+  }
+}
