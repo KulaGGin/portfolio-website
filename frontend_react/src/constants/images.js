@@ -1,3 +1,4 @@
+import avatar from '../assets/avatar.svg';
 import email from '../assets/email.png';
 import mobile from '../assets/mobile.png';
 import api from '../assets/api.png';
@@ -36,6 +37,7 @@ import skype from '../assets/skype.png';
 import spotify from '../assets/spotify.png';
 
 export default {
+  avatar,
   email,
   mobile,
   api,
