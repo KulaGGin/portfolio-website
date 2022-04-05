@@ -1,4 +1,8 @@
 import avatar from '../assets/avatar.svg';
+import agile from '../assets/agile.png';
+import cleanCode from '../assets/cleanCode.png';
+import cleanArchitecture from '../assets/cleanArchitecture.png';
+import tdd from '../assets/tdd.png';
 import email from '../assets/email.png';
 import mobile from '../assets/mobile.png';
 import api from '../assets/api.png';
@@ -38,6 +42,10 @@ import spotify from '../assets/spotify.png';
 
 export default {
   avatar,
+  agile,
+  cleanCode,
+  cleanArchitecture,
+  tdd,
   email,
   mobile,
   api,

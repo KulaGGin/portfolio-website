@@ -1,4 +1,6 @@
 import React from 'react'
+import ReactTooltip from 'react-tooltip';
+
 import { motion } from 'framer-motion';
 
 import { images } from '../../constants';
@@ -15,6 +17,12 @@ const scaleVariants = {
     }
   }
 }
+
+const headerPractices = [];
+headerPractices.push({image: images.tdd, tooltip:"TDD-infected"});
+headerPractices.push({image: images.cleanCode, tooltip:"Proud Clean-Coder"});
+headerPractices.push({image: images.cleanArchitecture, tooltip:"Able to implement Clean Architecture"});
+headerPractices.push({image: images.agile, tooltip:"I follow best software development practices"});
 
 const Header = () => (
   (
@@ -33,8 +41,8 @@ const Header = () => (
             </div>
           </div>
           <div className='tag-cmp app__flex'>
-            <p className='p-text'>Web Developer</p>
-            <p className='p-text'>Freelancer</p>
+            <p className='p-text'>Web-apps, Desktop-apps and Game Developer</p>
+            <p className='p-text'>All in one person</p>
           </div>
         </div>
       </motion.div>
@@ -59,9 +67,21 @@ const Header = () => (
         whileInView={scaleVariants.whileInView}
         className="app__header-circles"
       >
-        {[images.flutter, images.redux, images.sass].map((circle, index) => (
-          <div className="circle-cmp app__flex" key={`circle-${index}`}>
-            <img src={circle} alt="profile_bg" />
+        {headerPractices.map((practice, index) => (
+          <div className="circle-cmp app__flex">
+            <div className="app__flex" data-tip="Placeholder Tooltip" data-for={`circle-${index}`} key={`circle-${index}`}>
+              <img src={practice.image} alt="profile_bg" />
+            </div>
+
+            <ReactTooltip
+              type="warning"
+              id={`circle-${index}`}
+              effect="solid"
+              arrowColor="#fff"
+              className="header-circle-tooltip"
+            >
+              {practice.tooltip}
+            </ReactTooltip>
           </div>
         ))}
       </motion.div>
