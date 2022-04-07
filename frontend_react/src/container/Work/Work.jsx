@@ -21,6 +21,13 @@ const Work = () => {
     });
   }, []);
 
+  let workCategories = new Set();
+  for(const work of works) {
+    for(const tag of work.tags) {
+      workCategories.add(tag)
+    }
+  }
+  workCategories = Array.from(workCategories);
 
   const handleWorkFilter = (item) => {
     setActiveFilter(item);
@@ -41,7 +48,7 @@ const Work = () => {
       <h2 className="head-text">My Creative <span>Portfolio</span> Section</h2>
 
       <div className="app__work-filter">
-        {['UI/UX', 'Web App', 'Mobile App', 'React JS', 'All'].map(
+        {workCategories.map(
           (item, index) => (
             <div
               key={index}
@@ -50,7 +57,15 @@ const Work = () => {
             >
               {item}
             </div>
-          ))}
+          ))
+        }
+        <div
+          key="All"
+          onClick={() => handleWorkFilter("All")}
+          className={`app__work-filter-item app__flex p-text ${activeFilter === "All" ? 'item-active' : ''}`}
+        >
+          All
+        </div>
       </div>
 
       <motion.div
