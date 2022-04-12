@@ -39,6 +39,7 @@ import bolt from '../assets/bolt.png';
 import nb from '../assets/nb.png';
 import skype from '../assets/skype.png';
 import spotify from '../assets/spotify.png';
+import tools from '../assets/tools.png';
 
 export default {
   avatar,
@@ -79,4 +80,5 @@ export default {
   nb,
   skype,
   spotify,
+  tools,
 };
