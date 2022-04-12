@@ -48,12 +48,6 @@ const Contact = () => {
             serg.kulaggin@gmail.com
           </a>
         </div>
-        <div className="app__contact-card">
-          <img src={images.mobile} alt="mobile" />
-          <a href="tel:+1 (123) 456-789" className="p-text">
-            +1 (123) 456-789
-          </a>
-        </div>
       </div>
 
       {!isFormSubmitted ?
@@ -86,5 +80,5 @@ const Contact = () => {
 export default AppWrap(
   MotionWrap(Contact, 'app__contact'),
   'contact',
-  'app__whitebg'
+  'app__primarybg'
 )

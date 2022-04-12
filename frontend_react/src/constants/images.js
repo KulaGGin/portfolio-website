@@ -3,7 +3,7 @@ import agile from '../assets/agile.png';
 import cleanCode from '../assets/cleanCode.png';
 import cleanArchitecture from '../assets/cleanArchitecture.png';
 import tdd from '../assets/tdd.png';
-import email from '../assets/email.png';
+import email from '../assets/emailIcon.svg';
 import mobile from '../assets/mobile.png';
 import api from '../assets/api.png';
 import cpp from '../assets/cpp.png';
