@@ -3,11 +3,11 @@ import React, { useState } from 'react'
 import {images } from '../../constants'
 import {AppWrap, MotionWrap} from '../../wrapper'
 import {client } from '../../client'
-import './Footer.scss';
+import './Contact.scss';
 
-import './Footer.scss';
+import './Contact.scss';
 
-const Footer = () => {
+const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false)
@@ -41,14 +41,14 @@ const Footer = () => {
     <>
       <h2 className="head-text">Take a coffee & chat with me</h2>
 
-      <div className="app__footer-cards">
-        <div className="app__footer-card">
+      <div className="app__contact-cards">
+        <div className="app__contact-card">
           <img src={images.email} alt="email" />
           <a href="mailto:serg.kulaggin@gmail.com" className="p-text">
             serg.kulaggin@gmail.com
           </a>
         </div>
-        <div className="app__footer-card">
+        <div className="app__contact-card">
           <img src={images.mobile} alt="mobile" />
           <a href="tel:+1 (123) 456-789" className="p-text">
             +1 (123) 456-789
@@ -57,7 +57,7 @@ const Footer = () => {
       </div>
 
       {!isFormSubmitted ?
-        <div className="app__footer-form app__flex">
+        <div className="app__contact-form app__flex">
           <div className="app__flex">
             <input className="p-text" type="text" placeholder="Your Name" name="name" value={name} onChange={handleChangeInput} />
           </div>
@@ -84,7 +84,7 @@ const Footer = () => {
 }
 
 export default AppWrap(
-  MotionWrap(Footer, 'app__footer'),
+  MotionWrap(Contact, 'app__contact'),
   'contact',
   'app__whitebg'
 )
