@@ -1,0 +1,50 @@
+.app__Footer {
+  background-color: var(--secondary-color);
+  text-align: center;
+  padding: 1rem 1.5rem 4rem;
+
+  &_body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &_logo {
+
+  }
+
+  &_logoImage {
+    height: 48px;
+    filter: brightness(0) saturate(100%) invert(95%) sepia(71%) saturate(1543%) hue-rotate(179deg) brightness(113%) contrast(94%);
+  }
+
+  &_title {
+    font-family: 'europa', sans-serif;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 300;
+    opacity: 0.7;
+    max-width: 320px;
+    margin: 2rem 1.5rem;
+    line-height: 1.125;
+
+  }
+
+  &_copyright {
+    font-family: 'europa', sans-serif;
+    color: white;
+    font-weight: 300;
+    opacity: 0.7;
+    line-height: 1.125;
+  }
+
+  &_link {
+    color: white;
+    text-decoration: underline;
+
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
