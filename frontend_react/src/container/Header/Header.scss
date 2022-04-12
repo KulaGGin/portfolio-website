@@ -63,9 +63,11 @@
   align-items: flex-end;
   flex-direction: column;
 
+  text-align: center;
+
   .badge-cmp,
   .tag-cmp {
-    padding: 1rem 2rem;
+    padding: 1rem;
     background: var(--white-color);
     border-radius: 15px;
     flex-direction: row;
@@ -80,8 +82,9 @@
 
     p {
       width: 100%;
-      text-transform: uppercase;
+      //text-transform: uppercase;
       text-align: right;
+      font-size: 1rem;
     }
   }
 
