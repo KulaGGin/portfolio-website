@@ -125,6 +125,16 @@
   }
 }
 
+::-webkit-scrollbar {
+  width: 6px;border-left: 1px solid #E6ECF8;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #293347;
+  border-radius: 10px;
+}
+
 @media screen and (max-width: 500px) {
   .app__navigation,
   .app__social {
