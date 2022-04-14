@@ -62,7 +62,7 @@ const Header = () => (
           className="app__header-circles"
         >
           {headerPractices.map((practice, index) => (
-            <div className="circle-cmp app__flex">
+            <div className="circle-cmp app__flex" key={practice.tooltip}>
               <div className="app__flex" data-tip="Placeholder Tooltip" data-for={`circle-${index}`} key={`circle-${index}`}>
                 <img src={practice.image} alt="profile_bg" />
               </div>
