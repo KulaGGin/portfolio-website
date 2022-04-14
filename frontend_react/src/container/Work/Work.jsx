@@ -76,7 +76,7 @@ const Work = () => {
         className='app__work-portfolio'
       >
         {filterWork.map((work, index) => (
-          <Project project={work} key={work._id} />
+          <Project project={work} key={work._id} classNames="app__work-project" />
         ))}
       </motion.div>
     </>
