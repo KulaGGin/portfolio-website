@@ -3,11 +3,11 @@ import { urlFor } from "../../client";
 import { motion } from "framer-motion";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 
-import variables from './Project.scss';
+import scssVars from './Project.scss';
 
 const Project = (props) => {
   const project = props.project;
-  const cn = variables.cn;
+  const cn = scssVars.cn;
 
   return (
     <div className={`${props.classNames} ${cn} app__flex`}>
