@@ -21,6 +21,17 @@ export default{
               hotspot: true,
             },
         },
-        
+        {
+            name: 'works',
+            title: 'Works',
+            type: 'array',
+            of: [{
+                    type: 'reference',
+                    to: [
+                        {type: 'works'},
+                    ]
+                }
+            ]
+        },
     ]
 }
