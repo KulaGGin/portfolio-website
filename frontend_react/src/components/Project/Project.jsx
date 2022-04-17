@@ -10,7 +10,7 @@ const Project = (props) => {
   const cn = scssVars.cn;
 
   return (
-    <div className={`${props.classNames} ${cn} app__flex`}>
+    <div className={`${props.classNames} ${cn}`}>
       <div className={`${cn}-imageContainer app__flex`}>
         <img className={`${cn}-image`} src={urlFor(project.imgUrl)} alt={project.name}/>
         <motion.div

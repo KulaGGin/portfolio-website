@@ -1,8 +1,9 @@
 $cn: app__project; // cn is for className
 
 .#{$cn} {
-  width: 270px;
+  display: flex;
   flex-direction: column;
+  width: 270px;
 
   padding: 1rem;
   border-radius: 0.5rem;
