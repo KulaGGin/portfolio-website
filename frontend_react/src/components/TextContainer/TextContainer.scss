@@ -13,13 +13,6 @@ $cn: app__TextContainer; // cn is for className
   border-radius: 15px;
 
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-
-  //.#{$cn}-text {
-  //  @extend .p-text;
-  //  width: 100%;
-  //  text-align: right;
-  //  font-size: 1rem;
-  //}
 }
 
 :export {
