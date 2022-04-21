@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { AppWrap } from '../../wrapper'
 import { images } from '../../constants';
 import './Header.scss';
+import { TextContainer } from "../../components";
 
 
 const scaleVariants = {
@@ -34,19 +35,22 @@ const Header = () => (
           className="app__header-info"
         >
           <div className='app__header-badge'>
-            <div className='badge-cmp app__flex'>
-              <span>👋</span>
-              <div style={{ marginLeft: 20 }}>
-                <h2 >Hello, I am</h2>
-                <h1 className='head-text'>Sergei</h1>
-                <h2 >Nice to meet you.</h2>
+            <TextContainer>
+              <div className='app__header-badge-greeting'>
+                <span>👋</span>
+                <div style={{ marginLeft: 20 }}>
+                  <h2 >Hello, I am</h2>
+                  <h1 className='head-text'>Sergei</h1>
+                  <h2 >Nice to meet you.</h2>
+                </div>
               </div>
-            </div>
-            <div className='tag-cmp app__flex'>
-              <p className='p-text'>
+            </TextContainer>
+            <TextContainer>
+              <p className={`app__header-badge-meetingText2`}>
                 I'm a software developer based in Lviv.<br/>
-                I'm quietly confident, naturally curious, and perpetually improving my software craftsmanship chops every day.</p>
-            </div>
+                I'm quietly confident, naturally curious, and perpetually improving my software craftsmanship chops every day.
+              </p>
+            </TextContainer>
           </div>
         </motion.div>
         <motion.div
