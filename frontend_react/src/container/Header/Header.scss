@@ -103,6 +103,10 @@
     width: auto;
   }
 
+  &-meetingText2-container {
+    margin-top: 3rem;
+  }
+
   &-meetingText2 {
     @extend .p-text;
     width: 100%;
