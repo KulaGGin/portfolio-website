@@ -1,0 +1,126 @@
+$cn: app__featuredSkill;
+$image: #{$cn}-image;
+$description: #{$cn}-description;
+$mainSection: #{$cn}-mainSection;
+
+.#{$cn} {
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+
+  & > * {
+    flex: 50%;
+  }
+
+  margin: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.#{$cn}-image {
+  border-radius: 50%;
+  background-color: #fff;
+
+  width: 90px;
+  height: 90px;
+}
+
+.#{$cn}-descriptionContainer {
+  width: fit-content;
+  max-width: 512px;
+}
+
+.#{$cn}-description {
+}
+
+.#{$cn}-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: flex-start;
+}
+
+.#{$cn}-index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.#{$cn}-indexList {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+
+  & > .Collapsible {
+
+  }
+}
+
+.#{$cn} .Collapsible {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.#{$cn} .Collapsible__trigger {
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--secondary-color);
+  text-align: center;
+
+  &:hover {
+    font-weight: bolder;
+  }
+}
+
+.#{$cn} .Collapsible__contentInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 1rem;
+  text-align: left;
+}
+
+.#{$cn}-indexNode-leaf {
+  color: var(--secondary-color);
+  text-align: center;
+}
+
+.#{$cn}-secondary {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  & > * {
+    width: calc(100% / 3);
+    flex-wrap: wrap;
+  }
+}
+
+.#{$cn}-projectsContainer {
+  display: flex;
+
+  .app__featuredSkill-project {
+  }
+}
+
+.#{$cn}-projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.#{$cn}-educationalMaterialsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .app__featuredSkill-educationalMaterial {
+  }
+}
+
+:export {
+  cn: $cn;
+  image: $image;
+  description: $description;
+}
