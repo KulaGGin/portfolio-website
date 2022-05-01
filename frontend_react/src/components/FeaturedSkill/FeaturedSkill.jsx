@@ -71,7 +71,11 @@ const FeaturedSkill = (props) => {
         </div>
         <div className="app__featuredSkill-educationalMaterials">
           <h2>Educational Materials</h2>
-          <p>Educational materials I used to learn and practice this skill.</p>
+          <TextContainer classNames={`${cn}-descriptionContainer`}>
+            <p>
+              Educational materials I used to learn and practice this skill.
+            </p>
+          </TextContainer>
           <div className="app__featuredSkill-educationalMaterialsContainer">
             {
               skill.educationalMaterials.map((material, index) => (

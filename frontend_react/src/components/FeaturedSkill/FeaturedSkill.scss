@@ -110,12 +110,20 @@ $mainSection: #{$cn}-mainSection;
   align-items: center;
 }
 
+.#{$cn}-educationalMaterials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .#{$cn}-educationalMaterialsContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 
   .app__featuredSkill-educationalMaterial {
+    //flex: 50%;
   }
 }
 
