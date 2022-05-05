@@ -11,11 +11,11 @@ const EducationalMaterial = (props) => {
 
   return (
     <a className={`${props.classNames} ${cn}`} href={educationalMaterial.link}>
-      <img className={`${cn}-image`} src={educationalMaterial.logo} alt={educationalMaterial.name}/>
+      <img className={`${cn}-image`} src={urlFor(educationalMaterial.imgUrl)} alt={educationalMaterial.name}/>
       <div className={`${cn}-content app__flex`}>
         <h4 className={`${cn}-name`}>{educationalMaterial.name}</h4>
         <p className={`${cn}-authors`}>
-          <>by</>
+          <>by </>
           {
             educationalMaterial.authors.reduce((author1, author2) => (
               <>{author1}, {author2}</>

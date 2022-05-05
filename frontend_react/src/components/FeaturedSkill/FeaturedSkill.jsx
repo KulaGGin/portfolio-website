@@ -63,7 +63,7 @@ const FeaturedSkill = (props) => {
           </TextContainer>
           <div className="app__featuredSkill-indexList">
             {
-              skill.indexTree.children.map((indexItem, number) => (
+              skill.indexTree.children.map((indexItem, numbfer) => (
                 traverseIndexTree(indexItem)
               ))
             }

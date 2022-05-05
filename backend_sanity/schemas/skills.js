@@ -9,6 +9,11 @@ export default{
             type:'string'
         },
         {
+            name:'description',
+            title:'description',
+            type:'string'
+        },
+        {
             name:'bgColor',
             title:'BgColor',
             type:'string'
@@ -32,6 +37,23 @@ export default{
                     ]
                 }
             ]
+        },
+        {
+            name: 'educationalMaterials',
+            title: 'Educational Materials',
+            type: 'array',
+            of: [{
+                type: 'reference',
+                to: [
+                    {type: 'educationalMaterials'},
+                ]
+            }
+            ]
+        },
+        {
+            name:'knowledgeIndex',
+            title:'Knowledge Index',
+            type:'text'
         },
     ]
 }

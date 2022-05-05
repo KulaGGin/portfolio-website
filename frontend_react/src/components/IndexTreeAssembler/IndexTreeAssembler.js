@@ -1,6 +1,10 @@
 class IndexTreeAssembler {
   assemble(text) {
     const indexTree = new Node("indexTree");
+
+    if(text === undefined)
+      return indexTree;
+
     const textLines = text.split('\n');
 
     let currentGeneration = 0;
