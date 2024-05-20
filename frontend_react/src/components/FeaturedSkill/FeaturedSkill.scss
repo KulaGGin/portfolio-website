@@ -46,20 +46,31 @@ $mainSection: #{$cn}-mainSection;
   align-items: center;
 }
 
+.#{$cn}-indexContainer {
+  border-radius: 4px !important;
+  justify-content: flex-start !important;
+  padding: 0 !important;
+  padding-right: 1px !important;
+}
+
 .#{$cn}-indexList {
+  overflow: auto;
+  height: 24rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: flex-start;
   list-style-type: none;
 
   & > .Collapsible {
-
   }
+
+  width: 512px;
 }
 
 .#{$cn} .Collapsible {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .#{$cn} .Collapsible__trigger {
@@ -76,14 +87,13 @@ $mainSection: #{$cn}-mainSection;
 .#{$cn} .Collapsible__contentInner {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-left: 1rem;
   text-align: left;
 }
 
 .#{$cn}-indexNode-leaf {
   color: var(--secondary-color);
-  text-align: center;
 }
 
 .#{$cn}-secondary {
