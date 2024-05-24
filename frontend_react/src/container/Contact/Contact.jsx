@@ -39,7 +39,7 @@ const Contact = () => {
 
   return (
     <>
-      <h2 className="head-text">Take a coffee & chat with me</h2>
+      <h2 className="head-text">Talk to me</h2>
 
       <div className="app__contact-cards">
         <div className="app__contact-card">
