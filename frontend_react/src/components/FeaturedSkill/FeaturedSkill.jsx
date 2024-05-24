@@ -32,15 +32,15 @@ const FeaturedSkill = (props) => {
       transition={{ duration: 0.5 }}
       className={`${cn}`}
     >
-      <div className="app__featuredSkill-main">
-        <h2>{skill.name}</h2>
-        <img src={urlFor(skill.icon)} alt={skill.name} className={`${styles.image}`} style={{ backgroundColor: skill.bgColor }} />
-        {skill.description !== undefined &&
-        <TextContainer classNames={`${cn}-descriptionContainer`}>
-          <p className={styles.description}>{skill.description}</p>
-        </TextContainer>
-        }
-      </div>
+      {/*<div className="app__featuredSkill-main">*/}
+      {/*  <h2>{skill.name}</h2>*/}
+      {/*  <img src={urlFor(skill.icon)} alt={skill.name} className={`${styles.image}`} style={{ backgroundColor: skill.bgColor }} />*/}
+      {/*  {skill.description !== undefined &&*/}
+      {/*  <TextContainer classNames={`${cn}-descriptionContainer`}>*/}
+      {/*    <p className={styles.description}>{skill.description}</p>*/}
+      {/*  </TextContainer>*/}
+      {/*  }*/}
+      {/*</div>*/}
       <div className="app__featuredSkill-secondary">
         <div className="app__featuredSkill-projects">
           <h2>Projects</h2>
@@ -55,25 +55,25 @@ const FeaturedSkill = (props) => {
             }
           </div>
         </div>
-        <div className="app__featuredSkill-index">
-          <h2>Index</h2>
-          <TextContainer classNames={`${cn}-descriptionContainer`}>
-            <p>
-              This is index of things that this skill includes.<br/>
-              Click on an item to expand, or click on the Expand All button to expand all.
-            </p>
-          </TextContainer>
-          <TextContainer classNames={`${cn}-indexContainer`}>
-            <div className="app__featuredSkill-indexList">
-              {
-                skill.indexTree.children.map((indexItem, numbfer) => (
-                  traverseIndexTree(indexItem)
-                ))
-              }
-            </div>
-          </TextContainer>
+        {/*<div className="app__featuredSkill-index">*/}
+        {/*  <h2>Index</h2>*/}
+        {/*  <TextContainer classNames={`${cn}-descriptionContainer`}>*/}
+        {/*    <p>*/}
+        {/*      This is index of things that this skill includes.<br/>*/}
+        {/*      Click on an item to expand, or click on the Expand All button to expand all.*/}
+        {/*    </p>*/}
+        {/*  </TextContainer>*/}
+        {/*  <TextContainer classNames={`${cn}-indexContainer`}>*/}
+        {/*    <div className="app__featuredSkill-indexList">*/}
+        {/*      {*/}
+        {/*        skill.indexTree.children.map((indexItem, numbfer) => (*/}
+        {/*          traverseIndexTree(indexItem)*/}
+        {/*        ))*/}
+        {/*      }*/}
+        {/*    </div>*/}
+        {/*  </TextContainer>*/}
 
-        </div>
+        {/*</div>*/}
         <div className="app__featuredSkill-educationalMaterials">
           <h2>Educational Materials</h2>
           <TextContainer classNames={`${cn}-descriptionContainer`}>
