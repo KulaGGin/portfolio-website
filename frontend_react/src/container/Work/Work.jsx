@@ -25,8 +25,10 @@ const Work = () => {
 
   let workCategories = new Set();
   for(const work of works) {
-    for(const tag of work.tags) {
-      workCategories.add(tag)
+    if(work.tags) {
+      for(const tag of work.tags) {
+        workCategories.add(tag)
+      }
     }
   }
   workCategories = Array.from(workCategories);
