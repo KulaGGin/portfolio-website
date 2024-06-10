@@ -28,6 +28,7 @@ $mainSection: #{$cn}-mainSection;
 .#{$cn}-descriptionContainer {
   width: fit-content;
   max-width: 512px;
+  margin-bottom: 1rem;
 }
 
 .#{$cn}-description {
@@ -131,6 +132,7 @@ $mainSection: #{$cn}-mainSection;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  gap: 2rem 2rem;
 
   .app__featuredSkill-educationalMaterial {
     //flex: 50%;

@@ -45,7 +45,7 @@ const FeaturedSkill = (props) => {
         <div className="app__featuredSkill-projects">
           <h2>Projects</h2>
           <TextContainer classNames={`${cn}-descriptionContainer`}>
-            <p>Projects in which I applied the skill.</p>
+            <p>Projects in which I applied {skill.name}.</p>
           </TextContainer>
           <div className="app__featuredSkill-projectsContainer">
             {
@@ -78,7 +78,7 @@ const FeaturedSkill = (props) => {
           <h2>Educational Materials</h2>
           <TextContainer classNames={`${cn}-descriptionContainer`}>
             <p>
-              Educational materials I used to learn and practice this skill.
+              Educational materials I used to learn and practice {skill.name}.
             </p>
           </TextContainer>
           <div className="app__featuredSkill-educationalMaterialsContainer">
