@@ -15,7 +15,7 @@ const EducationalMaterial = (props) => {
             <img className={`${cn}-image`} src={urlFor(educationalMaterial.imgUrl)} alt={educationalMaterial.name}/>
         }
         <div className={`${cn}-content app__flex`}>
-          <h4 className={`${cn}-name`}>{educationalMaterial.name}</h4>
+          <h4 className={`${cn}-name`}>{educationalMaterial.title}</h4>
           <p className={`${cn}-authors`}>
             {educationalMaterial.authors &&
                 <>by </>
