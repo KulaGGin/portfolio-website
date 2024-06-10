@@ -10,7 +10,7 @@ import Project from '../../components/Project/Project'
 
 const Work = () => {
   const [works, setWorks] = useState([]);
-  const [filterWork, setFilterWork] = useState([]);
+  const [filteredWorksArray, setFilteredWorksArray] = useState([]);
   const [activeFilter, setActiveFilter] = useState('All');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
 
@@ -19,7 +19,7 @@ const Work = () => {
 
     client.fetch(query).then((data) => {
       setWorks(data);
-      setFilterWork(data);
+      setFilteredWorksArray(data);
     });
   }, []);
 
@@ -33,17 +33,27 @@ const Work = () => {
   }
   workCategories = Array.from(workCategories);
 
-  const handleWorkFilter = (item) => {
-    setActiveFilter(item);
+  const HideCurrentWorks = (WorkCategoryName) => {
+    setActiveFilter(WorkCategoryName);
     setAnimateCard([{y:100, opacity: 0}])
-    setTimeout(() => {
-      setAnimateCard([{y:0, opacity: 1}])
+  }
 
-      if(item === 'All') {
-        setFilterWork(works);
-      } else {
-        setFilterWork(works.filter((work) => work.tags.includes(item)))
-      }
+  const ShowWorks = (WorkCategoryName) => {
+    setAnimateCard([{y:0, opacity: 1}])
+
+    if(WorkCategoryName === 'All') {
+      setFilteredWorksArray(works);
+    } else {
+      let filteredWorks = works.filter((work) => work.tags.includes(WorkCategoryName));
+      setFilteredWorksArray(filteredWorks);
+    }
+  }
+
+  const WorkCategoryClicked_EventHandler = (WorkCategoryName) => {
+    HideCurrentWorks(WorkCategoryName);
+
+    setTimeout(() => {
+      ShowWorks(WorkCategoryName);
     }, 500);
   }
 
@@ -56,7 +66,7 @@ const Work = () => {
           (item, index) => (
             <div
               key={index}
-              onClick={() => handleWorkFilter(item)}
+              onClick={() => WorkCategoryClicked_EventHandler(item)}
               className={`app__work-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}
             >
               {item}
@@ -65,7 +75,7 @@ const Work = () => {
         }
         <div
           key="All"
-          onClick={() => handleWorkFilter("All")}
+          onClick={() => WorkCategoryClicked_EventHandler("All")}
           className={`app__work-filter-item app__flex p-text ${activeFilter === "All" ? 'item-active' : ''}`}
         >
           All
@@ -77,7 +87,7 @@ const Work = () => {
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className='app__work-portfolio'
       >
-        {filterWork.map((work, index) => (
+        {filteredWorksArray.map((work, index) => (
           <Project project={work} key={work._id} classNames="app__work-project" />
         ))}
       </motion.div>
