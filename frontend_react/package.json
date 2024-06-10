@@ -1,8 +1,10 @@
 {
+  "homepage": "https://kulaggin.github.io",
   "name": "frontend_react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
     "@sanity/client": "^3.3.0",
     "@sanity/image-url": "^1.0.1",
     "framer-motion": "^6.2.8",
@@ -19,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build -r https://github.com/KulaGGin/KulaGGin.github.io -b master"
   },
   "eslintConfig": {
     "extends": [
@@ -38,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
