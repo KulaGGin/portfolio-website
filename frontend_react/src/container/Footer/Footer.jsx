@@ -15,9 +15,9 @@ const Footer = () => {
           <div className="app__Footer_title">Living, learning & leveling up one day at a time.</div>
           <div className="app__Footer_copyright">
             <span> Handcrafted by Sergei Kulagin using </span>
-            <a className="app__Footer_link" href="https://reactjs.org/" target="_blank">React</a>
+            <a className="app__Footer_link" href="https://reactjs.org/" target="_blank" rel="noreferrer">React</a>
             <span> & </span>
-            <a className="app__Footer_link" href="http://sanity.io/" target="_blank">Sanity</a> © 2022
+            <a className="app__Footer_link" href="http://sanity.io/" target="_blank" rel="noreferrer">Sanity</a> © 2022
           </div>
         </div>
       </div>
