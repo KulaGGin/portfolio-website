@@ -41,7 +41,8 @@ import skype from '../assets/skype.png';
 import spotify from '../assets/spotify.png';
 import tools from '../assets/tools.png';
 
-export default {
+
+const Images = {
   avatar,
   agile,
   cleanCode,
@@ -82,3 +83,4 @@ export default {
   spotify,
   tools,
 };
+export default Images;
