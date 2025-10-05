@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { About, Contact, Header, Skills, Testimonial, Work, Footer } from './container'
+import { About, Contact, Header, Skills, Work, Footer } from './container'
 import './App.scss'
 import {Navbar} from "./components";
 import StickySocialMedia from "./components/StickySocialMedia/StickySocialMedia";

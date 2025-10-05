@@ -1,8 +1,6 @@
 import React from 'react';
 
 import Collapsible from "react-collapsible";
-import { motion } from "framer-motion";
-import { urlFor } from "../../client";
 import { TextContainer, Project, EducationalMaterial } from "../index";
 
 import scssVars from './FeaturedSkill.scss';
@@ -10,9 +8,9 @@ import ReactTooltip from "react-tooltip";
 
 const FeaturedSkill = (props) => {
   const cn = scssVars.cn;
-  const styles = scssVars;
   const skill = props.skill;
 
+  // eslint-disable-next-line no-unused-vars
   function traverseIndexTree(node) {
     if(!node.children.length) {
       return <p className={`${cn}-indexNode-leaf`} key={node.name}>{node.name}</p>

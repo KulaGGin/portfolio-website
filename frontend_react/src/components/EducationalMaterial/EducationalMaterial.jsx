@@ -1,10 +1,7 @@
 import React from 'react';
 import {urlFor} from "../../client";
-import {motion} from "framer-motion";
-import {AiFillEye, AiFillGithub} from "react-icons/ai";
-
 import scssVars from './EducationalMaterial.scss';
-import ReactTooltip from "react-tooltip";
+
 
 const EducationalMaterial = (props) => {
   const educationalMaterial = props.educationalMaterial;
