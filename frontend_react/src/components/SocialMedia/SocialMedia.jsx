@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { BsTwitter, BsGithub, BsStackOverflow } from 'react-icons/bs';
-import { FaFacebookF } from 'react-icons/fa'
 
 import './SocialMedia.scss'
 

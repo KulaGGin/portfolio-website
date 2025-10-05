@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react'
 
 import {images } from '../../constants'
 import {AppWrap, MotionWrap} from '../../wrapper'
-import {client } from '../../client'
 import './Contact.scss';
 import emailjs from '@emailjs/browser';
 
