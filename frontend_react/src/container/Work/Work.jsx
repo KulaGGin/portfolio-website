@@ -44,7 +44,12 @@ const Work = () => {
     if(WorkCategoryName === 'All') {
       setFilteredWorksArray(works);
     } else {
-      let filteredWorks = works.filter((work) => work.tags.includes(WorkCategoryName));
+      let filteredWorks = works.filter((work) => {
+          if(work.tags)
+            return work.tags.includes(WorkCategoryName);
+          return [];
+        }
+      );
       setFilteredWorksArray(filteredWorks);
     }
   }
