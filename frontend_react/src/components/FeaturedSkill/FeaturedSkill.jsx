@@ -6,6 +6,7 @@ import { urlFor } from "../../client";
 import { TextContainer, Project, EducationalMaterial } from "../index";
 
 import scssVars from './FeaturedSkill.scss';
+import ReactTooltip from "react-tooltip";
 
 const FeaturedSkill = (props) => {
   const cn = scssVars.cn;
@@ -27,11 +28,8 @@ const FeaturedSkill = (props) => {
   }
 
   return (
-    <motion.div
-      whileInView={{ opacity: [0, 1] }}
-      transition={{ duration: 0.5 }}
-      className={`${cn}`}
-    >
+      skill ?
+      <>
       {/*<div className="app__featuredSkill-main">*/}
       {/*  <h2>{skill.name}</h2>*/}
       {/*  <img src={urlFor(skill.icon)} alt={skill.name} className={`${styles.image}`} style={{ backgroundColor: skill.bgColor }} />*/}
@@ -84,13 +82,31 @@ const FeaturedSkill = (props) => {
           <div className="app__featuredSkill-educationalMaterialsContainer">
             {
               skill.educationalMaterials.map((material, index) => (
-                <EducationalMaterial educationalMaterial={material} classNames="app__featuredSkill-educationalMaterial" key={`app__skills-featuredSkill-educationalMaterial-${index}`} />
+                  <div data-tip="Placeholder Tooltip" data-for={`educationalMaterial-${index}`}>
+                    <EducationalMaterial
+                        educationalMaterial={material}
+                        classNames="app__featuredSkill-educationalMaterial"
+                        key={`app__skills-featuredSkill-educationalMaterial-${index}`}
+
+                    />
+                    <ReactTooltip
+                        type="warning"
+                        id={`educationalMaterial-${index}`}
+                        effect="solid"
+                        arrowColor="#fff"
+                        className="header-circle-tooltip"
+                    >
+                      {material.description}
+                    </ReactTooltip>
+                  </div>
+
               ))
             }
           </div>
         </div>
       </div>
-    </motion.div>
+    </> :
+      <></>
   );
 };
 

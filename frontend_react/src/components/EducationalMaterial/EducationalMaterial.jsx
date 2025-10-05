@@ -4,13 +4,18 @@ import {motion} from "framer-motion";
 import {AiFillEye, AiFillGithub} from "react-icons/ai";
 
 import scssVars from './EducationalMaterial.scss';
+import ReactTooltip from "react-tooltip";
 
 const EducationalMaterial = (props) => {
   const educationalMaterial = props.educationalMaterial;
   const cn = scssVars.cn;
 
   return (
-      <a className={`${props.classNames} ${cn}`} href={educationalMaterial.link}>
+      <a
+          className={`${props.classNames} ${cn}`}
+          href={educationalMaterial.link}
+          target="_blank" rel="noopener noreferrer"
+      >
         {educationalMaterial.imgUrl &&
             <img className={`${cn}-image`} src={urlFor(educationalMaterial.imgUrl)} alt={educationalMaterial.name}/>
         }
@@ -27,7 +32,7 @@ const EducationalMaterial = (props) => {
                 ))
             }
           </p>
-          <p className={`${cn}-description`}>{educationalMaterial.description}</p>
+          {/*<p className={`${cn}-description`}>{educationalMaterial.description}</p>*/}
           {/*<div className={`${cn}-tag app__flex`}>*/}
           {/*  <p className="p-text">{educationalMaterial.tags[0]}</p>*/}
           {/*</div>*/}
