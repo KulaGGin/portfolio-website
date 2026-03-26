@@ -101,10 +101,20 @@ $mainSection: #{$cn}-mainSection;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  gap: 2rem; // space between columns
 
   & > * {
-    width: calc(100% / 2);
-    flex-wrap: wrap;
+    width: 50%;
+  }
+
+  // Responsive: stack vertically on smaller widths
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+    width: 100%;
+
+    & > * {
+      width: 100%;
+    }
   }
 }
 
@@ -115,28 +125,20 @@ $mainSection: #{$cn}-mainSection;
   }
 }
 
-.#{$cn}-projects {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
+.#{$cn}-projects,
 .#{$cn}-educationalMaterials {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 0;
 }
 
+.#{$cn}-projectsContainer,
 .#{$cn}-educationalMaterialsContainer {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 2rem 2rem;
-
-  .app__featuredSkill-educationalMaterial {
-    //flex: 50%;
-  }
+  gap: 1rem;
+  justify-content: flex-start;
 }
 
 :export {
