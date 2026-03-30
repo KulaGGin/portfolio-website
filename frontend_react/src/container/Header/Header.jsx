@@ -47,7 +47,7 @@ const Header = () => (
             </TextContainer>
             <TextContainer classNames="app__header-badge-meetingText2-container">
               <p className={`app__header-badge-meetingText2`}>
-                I'm a software developer based in Lviv.<br/>
+                I'm a software developer based in Borna, Germany.<br/>
                 I'm quietly confident, naturally curious, and perpetually improving my software craftsmanship chops every day.
               </p>
             </TextContainer>
