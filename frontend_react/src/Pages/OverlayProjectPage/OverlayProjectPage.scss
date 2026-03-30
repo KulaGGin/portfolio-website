@@ -1,0 +1,51 @@
+$cn: OverlayProjectPage;
+
+.OverlayProjectPage {
+  color: white;
+
+  &__hero {
+    text-align: center;
+
+    img {
+      max-width: 600px;
+      width: 100%;
+      margin-top: 1rem;
+      border-radius: 10px;
+    }
+  }
+
+  &__section {
+    margin-top: 2rem;
+
+    h2 {
+      margin-bottom: 0.5rem;
+      color: var(--secondary-color);
+    }
+  }
+
+  &__tech {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    span {
+      background: #222;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+  }
+
+  &__links {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+
+    a {
+      background: var(--secondary-color);
+      padding: 0.7rem 1.2rem;
+      border-radius: 5px;
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
