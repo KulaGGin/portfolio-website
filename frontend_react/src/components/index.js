@@ -7,3 +7,4 @@ export { default as IndexTreeAssembler } from './IndexTreeAssembler/IndexTreeAss
 export { default as FeaturedSkill } from './FeaturedSkill/FeaturedSkill'
 export { default as EducationalMaterial } from './EducationalMaterial/EducationalMaterial'
 export { default as TextContainer } from './TextContainer/TextContainer'
+export { default as ScrollToHash } from './ScrollToHash/ScrollToHash'
