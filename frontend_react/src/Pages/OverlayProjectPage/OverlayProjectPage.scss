@@ -49,3 +49,7 @@ $cn: OverlayProjectPage;
     }
   }
 }
+
+:export {
+  cn: $cn;
+}
