@@ -1,4 +1,18 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+.app__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-color: var(--primary-color);
   font-family: var(--font-base);
 }
