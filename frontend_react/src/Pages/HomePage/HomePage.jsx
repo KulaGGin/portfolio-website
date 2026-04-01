@@ -1,21 +1,15 @@
 import React from 'react';
-import {About, Contact, Header, Skills, Work, Footer} from 'container'
-import {Navbar} from "components";
-import StickySocialMedia from "components/StickySocialMedia/StickySocialMedia";
-import SCSSVars from './HomePage.scss';
-
+import {About, Contact, Header, Skills, Work} from 'container'
+import Layout from "../../components/Layout/Layout";
 
 const HomePage = () => (
-    <div className="app">
-        <Navbar />
-        <StickySocialMedia />
-        <Header />
-        <About />
-        <Work />
-        <Skills />
-        <Contact />
-        <Footer />
-    </div>
+    <Layout>
+      <Header/>
+      <About/>
+      <Work/>
+      <Skills/>
+      <Contact/>
+    </Layout>
 );
 
 export default HomePage;
