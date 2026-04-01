@@ -1,0 +1,11 @@
+:root {
+  --navbar-height: 80px;
+}
+
+.app__content {
+  padding-top: var(--navbar-height);
+}
+
+html {
+  scroll-padding-top: 80px;
+}
