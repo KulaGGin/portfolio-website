@@ -13,17 +13,17 @@ const OverlayProjectPage = () => {
     return (
         <Layout>
           <div className={`${cn}`}>
-            <div className="projectPage__hero">
+            <div className={`${cn}__hero`}>
               <h1>Tekken 8 Overlay</h1>
               <img
                   src="/assets/tekken-overlay.png"
                   alt="Tekken 8 Overlay"
               />
-              <p className="projectPage__subtitle">
+              <p className={`${cn}__subtitle`}>
                 Real-time overlay showing hitboxes, frame data, and debug info for Tekken 8.
               </p>
             </div>
-            <div className="projectPage__section">
+            <div className={`${cn}__section`}>
               <h2>Key Features</h2>
               <ul>
                 <li>Real-time hitbox and hurtbox rendering</li>
@@ -34,18 +34,18 @@ const OverlayProjectPage = () => {
             </div>
 
             {/* TECH STACK */}
-            <div className="projectPage__section">
+            <div className={`${cn}__section`}>
               <h2>Tech Stack</h2>
-              <div className="projectPage__tech">
+              <div className={`${cn}__tech`}>
                 <span>C++</span>
                 <span>DirectX</span>
                 <span>ImGui</span>
                 <span>Reverse Engineering</span>
               </div>
             </div>
-            <div className="projectPage__links">
+            <div className={`${cn}__links`}>
               <a
-                  href="https://github.com/yourrepo/tekken-overlay"
+                  href="https://github.com/TekkenOverlay/TekkenOverlay"
                   target="_blank"
                   rel="noreferrer"
               >
