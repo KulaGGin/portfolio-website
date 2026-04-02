@@ -80,11 +80,15 @@ const FeaturedSkill = (props) => {
           <div className="app__featuredSkill-educationalMaterialsContainer">
             {
               skill.educationalMaterials.map((material, index) => (
-                  <div data-tip="Placeholder Tooltip" data-for={`educationalMaterial-${index}`}>
+                  <div
+                    data-tip="Placeholder Tooltip"
+                    data-for={`educationalMaterial-${index}`}
+                    key={`app__skills-featuredSkill-educationalMaterial-${index}`}
+                  >
                     <EducationalMaterial
                         educationalMaterial={material}
                         classNames="app__featuredSkill-educationalMaterial"
-                        key={`app__skills-featuredSkill-educationalMaterial-${index}`}
+
 
                     />
                     <ReactTooltip
