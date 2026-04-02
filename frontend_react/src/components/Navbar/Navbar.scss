@@ -159,3 +159,25 @@
     display: none;
   }
 }
+
+.app__navbar-back {
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  color: var(--gray-color);
+  text-decoration: none;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  &:hover {
+    color: var(--secondary-color);
+  }
+
+  svg {
+    transition: transform 0.2s ease;
+  }
+
+  &:hover svg {
+    transform: translateX(-4px);
+  }
+}
