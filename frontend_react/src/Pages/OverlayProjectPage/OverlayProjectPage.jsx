@@ -9,7 +9,6 @@ const OverlayProjectPage = () => {
   const cn = scssVars.cn;
   return (
     <Layout>
-      <AnimatedPage>
         <div className={`${cn}`}>
           <div className={`${cn}__hero`}>
             <img src={Logo} alt="Tekken 8 Overlay"/>
@@ -47,7 +46,6 @@ const OverlayProjectPage = () => {
             </a>
           </div>
         </div>
-      </AnimatedPage>
     </Layout>
   );
 };

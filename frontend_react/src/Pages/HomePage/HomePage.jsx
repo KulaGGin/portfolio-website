@@ -20,13 +20,11 @@ const HomePage = () => {
   }, [location]);
 
   return <Layout>
-    <AnimatedPage>
       <Header/>
       <About/>
       <Work/>
       <Skills/>
       <Contact/>
-    </AnimatedPage>
   </Layout>
 };
 
