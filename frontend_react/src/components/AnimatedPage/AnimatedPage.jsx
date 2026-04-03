@@ -1,25 +1,11 @@
-import { useRef } from "react";
-import { useLocation, useNavigationType } from "react-router-dom";
 import { motion } from "framer-motion";
 import { PageVariants, PageTransition } from "Animations/PageTransition";
+import { useNavigation } from "components/NavigationContext/NavigationContext";
+import {useLocation} from "react-router-dom";
 
 const AnimatedPage = ({ children }) => {
-  const location = useLocation();
-  const prevPath = useRef(location.pathname);
-
-  const goingToProject = location.pathname.startsWith("/project");
-  const comingFromProject = prevPath.current.startsWith("/project");
-
-  let direction = 1;
-
-  if (comingFromProject && location.pathname === "/") {
-    direction = -1; // project → home (slide left)
-  } else if (goingToProject) {
-    direction = 1; // home → project (slide right)
-  }
-
-  // update previous path AFTER calculation
-  prevPath.current = location.pathname;
+  const {direction, setDirection} = useNavigation();
+  console.log(`AnimatedPage mounted, Direction: ${direction}`);
 
   return (
     <motion.div
@@ -36,11 +22,14 @@ const AnimatedPage = ({ children }) => {
         top: 0,
         left: 0,
         boxShadow: "0 0 40px rgba(0,0,0,0.2)"
-    }}
+      }}
+      onAnimationComplete={() => {
+        setDirection(1);
+      }}
     >
       {children}
     </motion.div>
   );
 };
 
-export default AnimatedPage;
+export {AnimatedPage};

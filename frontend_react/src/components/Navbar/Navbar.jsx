@@ -1,16 +1,18 @@
 import React, {useState} from 'react'
-
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import {HiMenuAlt4, HiX} from 'react-icons/hi';
 import {motion} from 'framer-motion';
-import {Link, useLocation} from 'react-router-dom';
 import {images} from '../../constants';
 import './Navbar.scss';
+import { useNavigation } from "components/NavigationContext/NavigationContext"; // the hook we just made
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const onHomePage = location.pathname === '/';
   const onProjectPage = location.pathname.startsWith('/project');
-  const [toggle, setToggle] = useState(false)
+  const [toggle, setToggle] = useState(false);
+  const {setDirection} = useNavigation();
 
   return (
     <nav className="app__navbar">
@@ -20,20 +22,22 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="app__navbar-goBack">
-        <Link to="/" className="app__navbar-back">
-          <svg
-            className="close-icon"
-            viewBox="0 0 320 512"
-            width="14"
-            style={{ marginRight: "8px" }}
-          >
-            <path
-              fill="currentColor"
-              d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"
-            />
-          </svg>
-          Go Back
-        </Link>
+        {onProjectPage &&
+          <Link to="/" className="app__navbar-back" onClick={() =>  setDirection(-1)}>
+            <svg
+              className="close-icon"
+              viewBox="0 0 320 512"
+              width="14"
+              style={{marginRight: "8px"}}
+            >
+              <path
+                fill="currentColor"
+                d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"
+              />
+            </svg>
+            Go Back
+          </Link>
+        }
       </div>
       <ul className="app__navbar-links">
         {['home', 'about', 'work', 'skills', 'contact'].map((item) => {
