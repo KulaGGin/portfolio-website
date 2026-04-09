@@ -1,0 +1,36 @@
+$cn: "ProjectCard";
+
+.#{$cn} {
+    background-color: #1e1e1e;
+    color: #e2f0f0;
+    border-radius: 8px;
+    padding: 24px;
+    margin: 16px 0;
+    font-family: "Montserrat", Arial, sans-serif;
+    line-height: 1.5;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+    h3 {
+        margin-bottom: 12px;
+        font-size: 1.5rem;
+        color: #8bc5bf;
+        text-align: left; // Align title to left
+    }
+
+    .text {
+        font-size: 1rem;
+        text-align: left; // Align title to left
+    }
+
+    @media (min-width: 768px) {
+        padding: 32px;
+
+        h3 {
+            font-size: 1.75rem;
+        }
+
+        .text {
+            font-size: 1.125rem;
+        }
+    }
+}
