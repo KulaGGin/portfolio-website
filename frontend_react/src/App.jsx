@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.scss'
 import { BrowserRouter as Router, Routes, Route,  useLocation, useNavigationType } from "react-router-dom";
-import {OverlayProjectPage, HomePage} from "./Pages";
+import {OverlayProjectPage, HomePage, HockeyGameProjectPage} from "./Pages";
 import { AnimatePresence } from "framer-motion";
 import {AnimatedPage} from "components/AnimatedPage/AnimatedPage";
 import NavigationManager from "components/NavigationManager/NavigationManager";
@@ -19,9 +19,14 @@ const AnimatedRoutes = () => {
             <HomePage />
           </AnimatedPage>}
         />
-        <Route path="/project/:slug" element={
+        <Route path="/project/OverlayProjectPage" element={
           <AnimatedPage>
             <OverlayProjectPage />
+          </AnimatedPage>
+        } />
+        <Route path="/project/HockeyGameProjectPage" element={
+          <AnimatedPage>
+            <HockeyGameProjectPage />
           </AnimatedPage>
         } />
       </Routes>
