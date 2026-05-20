@@ -5,7 +5,7 @@ $cn: OverlayProjectPage;
   margin: 0 auto;
   width:100%;
 
-  &__hero {
+  &__Header {
     text-align: center;
 
     img {
@@ -16,28 +16,77 @@ $cn: OverlayProjectPage;
     }
   }
 
-  &__section {
-    margin-top: 2rem;
+  &__TitleVideo {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 
-    h2 {
-      margin-bottom: 0.5rem;
-      color: var(--secondary-color);
+  &__TableOfContents {
+    list-style: none;
+    padding: 0;
+
+    li {
+    }
+
+    a {
+      color: blue;
+      text-decoration: none;
+
+      &:hover {
+        color: blue;
+      }
     }
   }
 
-  &__tech {
+  &__ProjectCardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    & > * {
+      flex: 1 1 calc(50% - 16px);
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      & > * {
+        flex: 1 1 100%;
+      }
+    }
+  }
+
+  &__Section {
+    margin-top: 2rem;
+
+    h2, h3, h4, h5, h6 {
+      color: var(--secondary-color);
+    }
+
+    h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  &__Tech {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
 
     span {
-      background: #222;
+      background: #ffffff;
       padding: 0.5rem 1rem;
       border-radius: 5px;
     }
   }
 
-  &__links {
+  &__Links {
     margin-top: 2rem;
     display: flex;
     gap: 1rem;
@@ -51,6 +100,45 @@ $cn: OverlayProjectPage;
     }
   }
 }
+
+.ProjectCard {
+  .ProjectCard__Info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  &__Member {
+    // As an item inside the container
+    flex: 1 1 100%;
+
+    // As a container:
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    text-align: left;
+  }
+
+  &__Icon {
+    flex-shrink: 0; // prevents icon shrinking
+  }
+
+  &__Text {
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    > div {
+      flex: 1 1 100%;
+    }
+  }
+}
+
+
+
+
+
 
 :export {
   cn: $cn;
