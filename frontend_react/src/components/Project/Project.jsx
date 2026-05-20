@@ -4,6 +4,7 @@ import {motion} from "framer-motion";
 import {AiFillEye, AiFillGithub} from "react-icons/ai";
 
 import scssVars from './Project.scss';
+import {Link} from "react-router-dom";
 
 const Project = (props) => {
   const project = props.project;
@@ -20,16 +21,16 @@ const Project = (props) => {
               transition={{duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5}}
               className={`${cn}-hover  app__flex`}
           >
-            <a href={project.projectLink} target="_blank" rel="noreferrer">
+            <Link to={`${project.projectLink}`}>
               <motion.div
-                  whileInView={{scale: [0, 1]}}
-                  whileHover={{scale: [1, 0.9]}}
-                  transition={{duration: 0.25}}
-                  className={`${cn}-linkIconContainer  app__flex`}
+                whileInView={{ scale: [0, 1] }}
+                whileHover={{ scale: [1, 0.9] }}
+                transition={{ duration: 0.25 }}
+                className={`${cn}-linkIconContainer app__flex`}
               >
-                <AiFillEye className={`${cn}-linkIcon`}/>
+                <AiFillEye className={`${cn}-linkIcon`} />
               </motion.div>
-            </a>
+            </Link>
             <a href={project.codeLink} target="_blank" rel="noreferrer">
               <motion.div
                   whileInView={{scale: [0, 1]}}
