@@ -6,7 +6,6 @@ import AnimatedPage from "components/AnimatedPage/AnimatedPage";
 const Layout = ({ children }) => (
     <div className="app">
         <Navbar />
-        <StickySocialMedia />
         <main className="app__content">{children}</main>
         <Footer />
     </div>

@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import {AnimatedPage} from "components/AnimatedPage/AnimatedPage";
 import NavigationManager from "components/NavigationManager/NavigationManager";
 import {NavigationProvider} from "./components/NavigationContext/NavigationContext";
+import {StickySocialMedia} from "./components";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -33,6 +34,7 @@ const App = () => {
     <NavigationProvider>
       <Router>
         <NavigationManager/>
+        <StickySocialMedia />
         <AnimatedRoutes/>
       </Router>
     </NavigationProvider>
