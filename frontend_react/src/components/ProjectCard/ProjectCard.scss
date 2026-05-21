@@ -22,6 +22,30 @@ $cn: "ProjectCard";
         text-align: left; // Align title to left
     }
 
+    &__Info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    &__Member {
+        flex: 1 1 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+        text-align: left;
+    }
+
+    &__Icon {
+        flex-shrink: 0;
+    }
+
+    &__Text {
+        margin: 0;
+    }
+
     @media (min-width: 768px) {
         padding: 32px;
 
