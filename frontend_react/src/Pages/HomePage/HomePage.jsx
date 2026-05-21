@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import {About, Contact, Header, Skills, Work} from 'container'
 import Layout from "components/Layout/Layout";
 import AnimatedPage from "components/AnimatedPage/AnimatedPage"
+import ProjectPageLayout from "../../components/ProjectPageLayout/ProjectPageLayout";
 
 const HomePage = () => {
   const location = useLocation();
@@ -19,13 +20,13 @@ const HomePage = () => {
     }
   }, [location]);
 
-  return <Layout>
+  return <ProjectPageLayout>
       <Header/>
       <About/>
       <Work/>
       <Skills/>
       <Contact/>
-  </Layout>
+  </ProjectPageLayout>
 };
 
 export default HomePage;

@@ -14,21 +14,9 @@ const AnimatedRoutes = () => {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={
-          <AnimatedPage>
-            <HomePage />
-          </AnimatedPage>}
-        />
-        <Route path="/project/OverlayProjectPage" element={
-          <AnimatedPage>
-            <OverlayProjectPage />
-          </AnimatedPage>
-        } />
-        <Route path="/project/HockeyGameProjectPage" element={
-          <AnimatedPage>
-            <HockeyGameProjectPage />
-          </AnimatedPage>
-        } />
+        <Route path="/" element={<HomePage />}/>
+        <Route path="/project/OverlayProjectPage" element={<OverlayProjectPage />} />
+        <Route path="/project/HockeyGameProjectPage" element={<HockeyGameProjectPage />} />
       </Routes>
     </AnimatePresence>
   );

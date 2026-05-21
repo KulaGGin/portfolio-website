@@ -1,20 +1,6 @@
 $cn: OverlayProjectPage;
 
 .#{$cn} {
-  max-width: 73rem;
-  margin: 0 auto;
-  width:100%;
-
-  &__Header {
-    text-align: center;
-
-    img {
-      max-width: 600px;
-      width: 100%;
-      margin-top: 1rem;
-      border-radius: 10px;
-    }
-  }
 
   &__TitleVideo {
     width: 100%;
