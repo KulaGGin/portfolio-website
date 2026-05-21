@@ -43,7 +43,11 @@ const OverlayProjectPage = () => {
               </div>
               <div className="ProjectCard__Member">
                 <FontAwesomeIcon className="ProjectCard__Icon" icon={faUser}/>
-                <p className="ProjectCard__Text">Role: Programmer</p>
+                <p className="ProjectCard__Text">Role: Programmer, Reverse Engineer</p>
+              </div>
+              <div className="ProjectCard__Member">
+                <FontAwesomeIcon className="ProjectCard__Icon" icon={faScrewdriverWrench}/>
+                <p className="ProjectCard__Text">API & Engine: Custom CMake C++ Solution and Unreal Engine 4 & 5</p>
               </div>
               <div className="ProjectCard__Member">
                 <FontAwesomeIcon className="ProjectCard__Icon" icon={faCode}/>
@@ -52,10 +56,6 @@ const OverlayProjectPage = () => {
               <div className="ProjectCard__Member">
                 <FontAwesomeIcon className="ProjectCard__Icon" icon={faClock}/>
                 <p className="ProjectCard__Text">Time Frame: 2020-Ongoing</p>
-              </div>
-              <div className="ProjectCard__Member">
-                <FontAwesomeIcon className="ProjectCard__Icon" icon={faScrewdriverWrench}/>
-                <p className="ProjectCard__Text">Engine: Unreal Engine 4 & 5</p>
               </div>
             </div>
           </ProjectCard>
