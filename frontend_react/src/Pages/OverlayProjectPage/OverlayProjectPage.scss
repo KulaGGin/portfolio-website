@@ -87,40 +87,6 @@ $cn: OverlayProjectPage;
   }
 }
 
-.ProjectCard {
-  .ProjectCard__Info {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  &__Member {
-    // As an item inside the container
-    flex: 1 1 100%;
-
-    // As a container:
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 8px;
-    text-align: left;
-  }
-
-  &__Icon {
-    flex-shrink: 0; // prevents icon shrinking
-  }
-
-  &__Text {
-    margin: 0;
-  }
-
-  @media (max-width: 768px) {
-    > div {
-      flex: 1 1 100%;
-    }
-  }
-}
-
 :export {
   cn: $cn;
 }
